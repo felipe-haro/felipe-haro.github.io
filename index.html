@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Felipe Haro | QA Automation Engineer</title>
+  <meta name="description" content="Portfólio de Felipe Haro, engenheiro de qualidade com foco em automação de testes web, mobile e API.">
+  <meta name="theme-color" content="#0e1624">
+  <meta property="og:title" content="Felipe Haro | QA Automation Engineer">
+  <meta property="og:description" content="Automação de testes web, mobile e API com Cypress, Playwright, Selenium e Appium.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0e1624;
+      --ink-2: #152033;
+      --ink-3: #1d2b42;
+      --line: #2a3a55;
+      --text: #e6ebf3;
+      --muted: #9aa8bf;
+      --amber: #f3b544;
+      --amber-soft: rgba(243, 181, 68, 0.12);
+      --pass: #6fd3a3;
+      --fail: #f08a7a;
+      --radius-lg: 18px;
+      --radius-sm: 8px;
+      --wrap: 1120px;
+      --display: "Bricolage Grotesque", system-ui, sans-serif;
+      --body: "IBM Plex Sans", system-ui, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+    .skip {
+      position: absolute; left: 16px; top: -60px;
+      background: var(--amber); color: var(--ink);
+      padding: 8px 14px; border-radius: var(--radius-sm); font-weight: 600; z-index: 20;
+    }
+    .skip:focus { top: 12px; }
+
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header.site {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(14, 22, 36, 0.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 21px; letter-spacing: -0.02em;
+      gap: 0;
+    }
+    .brand span { color: var(--amber); }
+    .brand-mark {
+      display: grid; place-items: center; width: 34px; height: 34px;
+      border: 1.5px solid var(--amber); border-radius: 50%;
+      color: var(--amber); font-size: 14px; letter-spacing: 0.5px;
+    }
+    nav.main { display: flex; align-items: center; gap: 26px; }
+    nav.main a { text-decoration: none; color: var(--muted); font-size: 15px; }
+    nav.main a:hover { color: var(--text); }
+    .lang {
+      display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px;
+    }
+    .lang button {
+      background: none; border: 0; color: var(--muted); font: 600 13px var(--body);
+      padding: 5px 11px; border-radius: 999px; cursor: pointer;
+    }
+    .lang button[aria-pressed="true"] { background: var(--amber); color: var(--ink); }
+
+    /* Hero */
+    .hero { padding: 88px 0 96px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+    .status {
+      display: inline-flex; align-items: center; gap: 10px; margin: 0 0 26px;
+      font-family: var(--mono); font-size: 14px; color: var(--muted);
+    }
+    .pulse {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--pass);
+      box-shadow: 0 0 0 4px rgba(111, 211, 163, 0.18);
+    }
+    .name {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(64px, 9vw, 112px); line-height: 0.92; letter-spacing: -0.035em;
+      margin: 0 0 30px;
+    }
+    .name span { display: block; }
+    .name .first { color: var(--text); }
+    .name .last {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--amber);
+      paint-order: stroke fill;
+    }
+    @supports not (-webkit-text-stroke: 1px black) {
+      .name .last { color: var(--amber); }
+    }
+    .role { font-family: var(--display); font-size: 24px; font-weight: 700; color: var(--text); margin: 0 0 14px; }
+    .lede { color: var(--muted); font-size: 18px; max-width: 32em; margin: 0 0 30px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px 32px; margin: 0 0 34px; }
+    .meta dt { font-family: var(--mono); font-size: 13px; color: #6f7e97; margin-bottom: 2px; }
+    .meta dd { margin: 0; font-weight: 500; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 28px; border-radius: 999px; text-decoration: none;
+      font-weight: 600; font-size: 17px; border: 1.5px solid var(--amber);
+    }
+    .btn.primary { background: var(--amber); color: var(--ink); }
+    .btn.primary:hover { background: #ffc766; }
+    .btn.ghost { color: var(--amber); }
+    .btn.ghost:hover { background: var(--amber-soft); }
+
+    /* Terminal: the one signature moment */
+    .run {
+      background: #0a111c; border: 1px solid var(--line); border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+      font-family: var(--mono); font-size: 14px; line-height: 1.75; overflow: hidden;
+    }
+    .run-top {
+      display: flex; align-items: center; gap: 7px; padding: 12px 16px;
+      border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12.5px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+    .run-top span.file { margin-left: 10px; }
+    .run-body { padding: 18px 20px 20px; }
+    .run-body p { margin: 0; white-space: pre-wrap; }
+    .cmd { color: var(--text); }
+    .cmd .prompt { color: var(--amber); }
+    .suite { color: var(--muted); margin-top: 10px !important; }
+    .ok { color: var(--text); }
+    .ok .tick { color: var(--pass); }
+    .ok .ms { color: #5f6f88; }
+    .summary { margin-top: 14px !important; color: var(--pass); font-weight: 600; }
+    .run.animate .line { opacity: 0; transform: translateY(4px); animation: in 0.35s ease forwards; }
+    @keyframes in { to { opacity: 1; transform: none; } }
+
+    /* Sections */
+    section.block { padding: 96px 0; border-top: 1px solid var(--line); }
+    h2 {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(30px, 3.6vw, 42px); line-height: 1.1; letter-spacing: -0.015em;
+      margin: 0 0 14px;
+    }
+    .intro { color: var(--muted); max-width: 40em; margin: 0 0 40px; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; margin-top: 40px; }
+    .photo {
+      width: 320px; height: 320px; border-radius: 50%; padding: 6px;
+      background: linear-gradient(160deg, var(--amber), var(--fail));
+      box-shadow: 0 24px 70px -20px rgba(243, 181, 68, 0.35);
+    }
+    .photo img {
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
+      border: 4px solid var(--ink); background: var(--ink-2);
+    }
+    .about-text p { color: var(--muted); max-width: 40em; margin: 0 0 18px; }
+    .photo { position: relative; }
+    .photo.noimg img { opacity: 0; }
+    .photo.noimg::after {
+      content: "FH"; position: absolute; inset: 6px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--ink-2); border: 4px solid var(--ink);
+      font-family: var(--display); font-weight: 800; font-size: 96px; color: var(--amber);
+    }
+    .about-text p.lead { color: var(--text); font-size: 18px; }
+    .about-meta { margin: 32px 0 0; padding-top: 24px; border-top: 1px solid var(--line); gap: 20px 40px; }
+    .about-meta > div { flex: 1 1 180px; }
+
+    /* Projects */
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .filters button {
+      background: none; border: 1px solid var(--line); color: var(--muted);
+      padding: 8px 18px; border-radius: 999px; font: 500 15px var(--body); cursor: pointer;
+    }
+    .filters button:hover { color: var(--text); border-color: var(--muted); }
+    .filters button[aria-pressed="true"] { border-color: var(--amber); color: var(--amber); background: var(--amber-soft); }
+
+    .projects { display: grid; gap: 20px; }
+    .project {
+      display: grid; grid-template-columns: 1fr auto; gap: 8px 32px;
+      padding: 30px 32px; background: var(--ink-2);
+      border: 1px solid var(--line); border-radius: var(--radius-lg);
+    }
+    .project[hidden] { display: none; }
+    .project.featured { border-color: rgba(243, 181, 68, 0.45); }
+    .project h3 { font-family: var(--display); font-size: 24px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+    .project .repo { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 2px 0 12px; }
+    .project p.desc { margin: 0 0 14px; max-width: 46em; }
+    .project ul.points { margin: 0 0 18px; padding-left: 20px; color: var(--muted); }
+    .project ul.points li { margin-bottom: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .tags li { font-size: 13px; padding: 4px 11px; border-radius: 999px; background: var(--ink-3); color: var(--text); }
+    .project .open {
+      grid-column: 2; grid-row: 1 / span 2; align-self: start;
+      text-decoration: none; font-weight: 600; font-size: 15px; color: var(--amber);
+      border: 1px solid var(--line); padding: 9px 16px; border-radius: 999px; white-space: nowrap;
+    }
+    .project .open:hover { border-color: var(--amber); }
+    .project .body { grid-column: 1; }
+
+    /* Experience */
+    .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+    .timeline li { position: relative; padding: 0 0 36px 30px; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: ""; position: absolute; left: -7px; top: 8px;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--ink); border: 2px solid var(--muted);
+    }
+    .timeline li.now::before { border-color: var(--amber); background: var(--amber); }
+    .when { font-size: 14px; color: var(--muted); margin: 0; }
+    .timeline h3 { font-family: var(--display); font-size: 21px; font-weight: 700; margin: 2px 0 6px; }
+    .timeline h3 .at { color: var(--muted); font-weight: 500; }
+    .timeline p.what { margin: 0; max-width: 46em; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .skills h3 { font-family: var(--display); font-size: 19px; font-weight: 700; margin: 0 0 14px; color: var(--amber); }
+    .skills .tags li { background: var(--ink-2); border: 1px solid var(--line); }
+    .edu { margin-top: 48px; color: var(--muted); max-width: 46em; }
+    .edu strong { color: var(--text); font-weight: 600; }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+    .contact h2 { font-size: clamp(34px, 4.4vw, 52px); }
+    .links { display: grid; gap: 12px; }
+    .links a {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      padding: 18px 22px; border: 1px solid var(--line); border-radius: var(--radius-lg);
+      text-decoration: none; background: var(--ink-2);
+    }
+    .links a:hover { border-color: var(--amber); }
+    .links .k { color: var(--muted); font-size: 14px; }
+    .links .v { font-weight: 600; word-break: break-all; text-align: right; }
+
+    footer.site { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; }
+    footer.site .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer.site a { color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .hero { padding: 56px 0 72px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .contact { grid-template-columns: 1fr; align-items: start; }
+      .about { grid-template-columns: 1fr; gap: 36px; justify-items: start; }
+      .photo { width: 240px; height: 240px; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      nav.main a { display: none; }
+      section.block { padding: 68px 0; }
+      .project { grid-template-columns: 1fr; padding: 24px 20px; }
+      .project .open { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 4px; }
+      .skills { grid-template-columns: 1fr; }
+      .run { font-size: 12.5px; }
+      .links a { flex-direction: column; align-items: flex-start; }
+      .links .v { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .run.animate .line { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo" data-i18n="skip">Ir para o conteúdo</a>
+
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="#inicio" aria-label="Felipe Haro">felipe<span>.qa</span></a>
+      <nav class="main" aria-label="Principal">
+        <a href="#sobre" data-i18n="navAbout">Sobre</a>
+        <a href="#projetos" data-i18n="navProjects">Projetos</a>
+        <a href="#experiencia" data-i18n="navExperience">Experiência</a>
+        <a href="#competencias" data-i18n="navSkills">Competências</a>
+        <a href="#contato" data-i18n="navContact">Contato</a>
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="status"><span class="pulse" aria-hidden="true"></span><span data-i18n="status">Disponível para oportunidades</span></p>
+          <h1 class="name"><span class="first">Felipe</span> <span class="last">Haro</span></h1>
+          <p class="role" data-i18n="role">QA Automation Engineer</p>
+          <p class="lede" data-i18n="lede">Mais de cinco anos garantindo qualidade em produtos web, mobile e API. Escrevo automação com Cypress, Playwright, Selenium e Appium, e trabalho perto de desenvolvimento e produto para definir critérios de qualidade desde o início.</p>
+          <dl class="meta">
+            <div><dt data-i18n="mLocal">local</dt><dd>Minas Gerais, BR</dd></div>
+            <div><dt data-i18n="mExp">experiência</dt><dd data-i18n="mExpV">5+ anos em QA</dd></div>
+            <div><dt data-i18n="mStack">stack</dt><dd>Playwright, Cypress</dd></div>
+          </dl>
+          <div class="actions">
+            <a class="btn primary" href="#projetos" data-i18n="ctaProjects">Ver projetos</a>
+            <a class="btn ghost" href="#contato" data-i18n="ctaContact">Falar comigo</a>
+          </div>
+        </div>
+
+        <div class="run animate" role="img" aria-label="Terminal mostrando a execução de uma suíte de testes sobre o perfil do Felipe, com todos os testes passando." data-i18n-aria="runAria">
+          <div class="run-top" aria-hidden="true">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="file">felipe-haro.spec.ts</span>
+          </div>
+          <div class="run-body" aria-hidden="true">
+            <p class="line cmd"><span class="prompt">$</span> npx playwright test felipe-haro</p>
+            <p class="line suite" data-i18n="runSuite">Executando 5 testes</p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t1">5+ anos em qualidade de software</span> <span class="ms">(5y)</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t2">automação web, mobile e API</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t3">Cypress, Playwright, Selenium, Appium</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t4">testes rodando em CI/CD</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t5">disponível para novas oportunidades</span></p>
+            <p class="line summary" data-i18n="runSummary">5 passed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="sobre" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 id="about-title" data-i18n="aboutTitle">Sobre mim</h2>
+        <div class="about">
+          <div class="photo">
+            <img src="foto.jpg" alt="Foto de Felipe Haro" data-i18n-alt="photoAlt" width="320" height="320"
+                 onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='https://avatars.githubusercontent.com/u/53350992?v=4';}else{this.parentNode.classList.add('noimg');}">
+          </div>
+          <div class="about-text">
+            <p class="lead" data-i18n="ab1">Sou Engenheiro de QA há mais de 5 anos. Hoje cuido da qualidade de ponta a ponta do app Box Champs na Atena IO, em Android, iOS e web, com automação em Appium, WebdriverIO e Maestro.</p>
+            <p data-i18n="ab2">Comecei no suporte N2, resolvendo chamados com SQL e validando correções, e fui promovido até analista de testes. Desde então meu foco é tirar a regressão do caminho: reduzi a execução de 5 horas para 45 minutos na Conexa, de 4 horas para menos de 50 minutos na Atena IO, e cheguei a mais de 245 casos automatizados na Zenvia.</p>
+            <p data-i18n="ab3">Integro as suítes aos pipelines de CI/CD e uso IA no dia a dia de QA, com Claude Code, GitHub Copilot e o MCP do Playwright, para criar e revisar cenários mais rápido.</p>
+            <dl class="meta about-meta">
+              <div><dt data-i18n="amEdu">formação</dt><dd data-i18n="amEduV">Pós em Engenharia de Software com ênfase em Qualidade</dd></div>
+              <div><dt data-i18n="amLang">idiomas</dt><dd data-i18n="amLangV">Português, inglês (B2) e espanhol</dd></div>
+              <div><dt data-i18n="amFocus">foco</dt><dd data-i18n="amFocusV">Automação web, mobile e API</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="projetos" aria-labelledby="projetos-title">
+      <div class="wrap">
+        <h2 id="projetos-title" data-i18n="projTitle">Projetos em destaque</h2>
+        <p class="intro" data-i18n="projIntro">Repositórios públicos de automação. Filtre pela ferramenta para ver onde cada uma foi usada.</p>
+
+        <div class="filters" role="group" aria-label="Filtrar projetos" data-i18n-aria="filterAria">
+          <button type="button" data-filter="all" aria-pressed="true" data-i18n="fAll">Todos</button>
+          <button type="button" data-filter="cypress" aria-pressed="false">Cypress</button>
+          <button type="button" data-filter="selenium" aria-pressed="false">Selenium</button>
+        </div>
+
+        <div class="projects" aria-live="polite">
+          <article class="project featured" data-tags="cypress">
+            <div class="body">
+              <h3>DemoQA E2E</h3>
+              <p class="repo">felipe-haro/demoqa-cypress-automation</p>
+              <p class="desc" data-i18n="p1desc">Suíte end-to-end para o demoqa.com, estruturada como um projeto de automação real.</p>
+              <ul class="points">
+                <li data-i18n="p1a">Page Objects para separar seletores da lógica dos testes</li>
+                <li data-i18n="p1b">Testes orientados a dados e verificações de acessibilidade</li>
+                <li data-i18n="p1c">Relatório de defeitos e pipeline no GitHub Actions</li>
+              </ul>
+              <ul class="tags">
+                <li>Cypress</li><li>JavaScript</li><li>Page Objects</li><li data-i18n="tagA11y">Acessibilidade</li><li>GitHub Actions</li>
+              </ul>
+            </div>
+            <a class="open" href="https://github.com/felipe-haro/demoqa-cypress-automation" target="_blank" rel="noopener" data-i18n="openRepo">Ver no GitHub</a>
+          </article>
+
+          <article class="project" data-tags="cypress">
+            <div class="body">
+              <h3 data-i18n="p2title">Busca de psicólogos</h3>
+              <p class="repo">felipe-haro/automacaoBuscaPsicologos</p>
+              <p class="desc" data-i18n="p2desc">Automação da página de busca de psicólogos da plataforma Psicologia Viva, cobrindo diferentes contextos de busca.</p>
+              <ul class="points">
+                <li data-i18n="p2a">Custom commands do Cypress para montar os cenários</li>
+                <li data-i18n="p2b">Buscas com dados aleatórios para variar a cobertura</li>
+                <li data-i18n="p2c">Execução em integração contínua com GitHub Actions</li>
+              </ul>
+              <ul class="tags">
+                <li>Cypress</li><li>JavaScript</li><li>Custom commands</li><li>GitHub Actions</li>
+              </ul>
+            </div>
+            <a class="open" href="https://github.com/felipe-haro/automacaoBuscaPsicologos" target="_blank" rel="noopener" data-i18n="openRepo">Ver no GitHub</a>
+          </article>
+
+          <article class="project" data-tags="selenium">
+            <div class="body">
+              <h3 data-i18n="p3title">Automação web em Java</h3>
+              <p class="repo">felipe-haro/automacaoSeleniumCRP</p>
+              <p class="desc" data-i18n="p3desc">Testes de interface web escritos em Java com Selenium WebDriver, a stack que usei na automação da Psicologia Viva.</p>
+              <ul class="tags">
+                <li>Selenium WebDriver</li><li>Java</li>
+              </ul>
+            </div>
+            <a class="open" href="https://github.com/felipe-haro/automacaoSeleniumCRP" target="_blank" rel="noopener" data-i18n="openRepo">Ver no GitHub</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="experiencia" aria-labelledby="exp-title">
+      <div class="wrap">
+        <h2 id="exp-title" data-i18n="expTitle">Experiência</h2>
+        <p class="intro" data-i18n="expIntro">Do suporte N2 à engenharia de qualidade, sempre perto do produto e de quem o usa.</p>
+        <ol class="timeline">
+          <li class="now">
+            <p class="when" data-i18n="e1when">Nov 2025 até hoje, meio período</p>
+            <h3 data-i18n-html="e1role">Engenheiro de Qualidade <span class="at">na Atena IO</span></h3>
+            <p class="what" data-i18n="e1what">Responsável pela qualidade do app Box Champs em Android, iOS e web. Automação mobile com Appium e JavaScript, testes de API com validação de contratos e cenários de falha.</p>
+          </li>
+          <li>
+            <p class="when">Mar 2024 – Set 2026</p>
+            <h3 data-i18n-html="e2role">Engenheiro de Qualidade <span class="at">na Zenvia</span></h3>
+            <p class="what" data-i18n="e2what">Automação de testes web e API com Cypress e Playwright, cenários em Gherkin, acompanhamento de vulnerabilidades no VeraCode e de qualidade de código no SonarQube, dashboards de qualidade com JIRA e BrowserStack.</p>
+          </li>
+          <li>
+            <p class="when">Jul 2023 – Fev 2024</p>
+            <h3 data-i18n-html="e3role">Analista de Testes <span class="at">na Icaro Tech</span></h3>
+            <p class="what" data-i18n="e3what">Projetos de telecom com sistemas de alarme de infraestrutura de rede: planos de teste, critérios de aceite, testes de API e manipulação de dados em MySQL.</p>
+          </li>
+          <li>
+            <p class="when">Set 2020 – Jul 2023</p>
+            <h3 data-i18n-html="e4role">Suporte N2 a Analista de Testes <span class="at">na Psicologia Viva / Conexa</span></h3>
+            <p class="what" data-i18n="e4what">Comecei validando correções no suporte e cresci até automatizar testes web com Selenium WebDriver, Java e TestNG, com Docker e pipelines no GitLab CI/CD.</p>
+          </li>
+          <li>
+            <p class="when">Dez 2019 – Ago 2020</p>
+            <h3 data-i18n-html="e5role">Analista de Suporte N2 <span class="at">na Squadra Digital</span></h3>
+            <p class="what" data-i18n="e5what">Suporte a sistemas de vendas e logística com foco em banco de dados, PL/SQL e integrações fiscais.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="competencias" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title" data-i18n="skillsTitle">Competências</h2>
+        <p class="intro" data-i18n="skillsIntro">Ferramentas que uso no dia a dia e os tipos de teste em que tenho mais prática.</p>
+        <div class="skills">
+          <div>
+            <h3 data-i18n="sAuto">Automação</h3>
+            <ul class="tags">
+              <li>Playwright</li><li>Cypress</li><li>Selenium WebDriver</li><li>Appium</li><li>RestAssured</li><li>Robot Framework</li><li>TypeScript</li><li>JavaScript</li><li>Java</li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="sTypes">Tipos de teste</h3>
+            <ul class="tags">
+              <li data-i18n="ty1">Web</li><li>Mobile</li><li>API</li><li data-i18n="ty2">Regressão</li><li data-i18n="ty3">Exploratório</li><li data-i18n="ty4">Aceitação</li><li>BDD / Gherkin</li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="sTools">Ferramentas e processo</h3>
+            <ul class="tags">
+              <li>JIRA</li><li>Azure DevOps</li><li>BrowserStack</li><li>Postman</li><li>GitHub Actions</li><li>GitLab CI/CD</li><li>Docker</li><li>SonarQube</li><li>VeraCode</li><li>SQL</li>
+            </ul>
+          </div>
+        </div>
+        <p class="edu" data-i18n-html="edu"><strong>Pós-graduação em Engenharia de Software</strong> com ênfase em Qualidade e <strong>bacharelado em Sistemas de Informação</strong>.</p>
+      </div>
+    </section>
+
+    <section class="block" id="contato" aria-labelledby="contact-title">
+      <div class="wrap contact">
+        <div>
+          <h2 id="contact-title" data-i18n="contactTitle">Vamos conversar sobre qualidade no seu time?</h2>
+          <p class="intro" data-i18n="contactIntro">Aberto a vagas de QA, SDET e automação de testes, remotas ou híbridas.</p>
+        </div>
+        <div class="links">
+          <a href="mailto:felipe.haroti@gmail.com"><span class="k">E-mail</span><span class="v">felipe.haroti@gmail.com</span></a>
+          <a href="https://www.linkedin.com/in/felipe-haro/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/felipe-haro</span></a>
+          <a href="https://github.com/felipe-haro" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">felipe-haro</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Felipe Haro</span>
+      <a href="#inicio" data-i18n="top">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script>
+    const i18n = {
+      pt: {
+        skip: "Ir para o conteúdo",
+        navProjects: "Projetos", navExperience: "Experiência", navSkills: "Competências", navContact: "Contato",
+        navAbout: "Sobre", aboutTitle: "Sobre mim", photoAlt: "Foto de Felipe Haro",
+        ab1: "Sou Engenheiro de QA há mais de 5 anos. Hoje cuido da qualidade de ponta a ponta do app Box Champs na Atena IO, em Android, iOS e web, com automação em Appium, WebdriverIO e Maestro.",
+        ab2: "Comecei no suporte N2, resolvendo chamados com SQL e validando correções, e fui promovido até analista de testes. Desde então meu foco é tirar a regressão do caminho: reduzi a execução de 5 horas para 45 minutos na Conexa, de 4 horas para menos de 50 minutos na Atena IO, e cheguei a mais de 245 casos automatizados na Zenvia.",
+        ab3: "Integro as suítes aos pipelines de CI/CD e uso IA no dia a dia de QA, com Claude Code, GitHub Copilot e o MCP do Playwright, para criar e revisar cenários mais rápido.",
+        amEdu: "formação", amEduV: "Pós em Engenharia de Software com ênfase em Qualidade",
+        amLang: "idiomas", amLangV: "Português, inglês (B2) e espanhol",
+        amFocus: "foco", amFocusV: "Automação web, mobile e API",
+        status: "Disponível para oportunidades",
+        role: "QA Automation Engineer",
+        mLocal: "local", mExp: "experiência", mExpV: "5+ anos em QA", mStack: "stack",
+        lede: "Mais de cinco anos garantindo qualidade em produtos web, mobile e API. Escrevo automação com Cypress, Playwright, Selenium e Appium, e trabalho perto de desenvolvimento e produto para definir critérios de qualidade desde o início.",
+        ctaProjects: "Ver projetos", ctaContact: "Falar comigo",
+        runAria: "Terminal mostrando a execução de uma suíte de testes sobre o perfil do Felipe, com todos os testes passando.",
+        runSuite: "Executando 5 testes",
+        t1: "5+ anos em qualidade de software", t2: "automação web, mobile e API",
+        t3: "Cypress, Playwright, Selenium, Appium", t4: "testes rodando em CI/CD",
+        t5: "disponível para novas oportunidades", runSummary: "5 passed",
+        projTitle: "Projetos em destaque",
+        projIntro: "Repositórios públicos de automação. Filtre pela ferramenta para ver onde cada uma foi usada.",
+        filterAria: "Filtrar projetos", fAll: "Todos", openRepo: "Ver no GitHub", tagA11y: "Acessibilidade",
+        p1desc: "Suíte end-to-end para o demoqa.com, estruturada como um projeto de automação real.",
+        p1a: "Page Objects para separar seletores da lógica dos testes",
+        p1b: "Testes orientados a dados e verificações de acessibilidade",
+        p1c: "Relatório de defeitos e pipeline no GitHub Actions",
+        p2title: "Busca de psicólogos",
+        p2desc: "Automação da página de busca de psicólogos da plataforma Psicologia Viva, cobrindo diferentes contextos de busca.",
+        p2a: "Custom commands do Cypress para montar os cenários",
+        p2b: "Buscas com dados aleatórios para variar a cobertura",
+        p2c: "Execução em integração contínua com GitHub Actions",
+        p3title: "Automação web em Java",
+        p3desc: "Testes de interface web escritos em Java com Selenium WebDriver, a stack que usei na automação da Psicologia Viva.",
+        expTitle: "Experiência",
+        expIntro: "Do suporte N2 à engenharia de qualidade, sempre perto do produto e de quem o usa.",
+        e1when: "Nov 2025 até hoje, meio período",
+        e1role: 'Engenheiro de Qualidade <span class="at">na Atena IO</span>',
+        e1what: "Responsável pela qualidade do app Box Champs em Android, iOS e web. Automação mobile com Appium e JavaScript, testes de API com validação de contratos e cenários de falha.",
+        e2role: 'Engenheiro de Qualidade <span class="at">na Zenvia</span>',
+        e2what: "Automação de testes web e API com Cypress e Playwright, cenários em Gherkin, acompanhamento de vulnerabilidades no VeraCode e de qualidade de código no SonarQube, dashboards de qualidade com JIRA e BrowserStack.",
+        e3role: 'Analista de Testes <span class="at">na Icaro Tech</span>',
+        e3what: "Projetos de telecom com sistemas de alarme de infraestrutura de rede: planos de teste, critérios de aceite, testes de API e manipulação de dados em MySQL.",
+        e4role: 'Suporte N2 a Analista de Testes <span class="at">na Psicologia Viva / Conexa</span>',
+        e4what: "Comecei validando correções no suporte e cresci até automatizar testes web com Selenium WebDriver, Java e TestNG, com Docker e pipelines no GitLab CI/CD.",
+        e5role: 'Analista de Suporte N2 <span class="at">na Squadra Digital</span>',
+        e5what: "Suporte a sistemas de vendas e logística com foco em banco de dados, PL/SQL e integrações fiscais.",
+        skillsTitle: "Competências",
+        skillsIntro: "Ferramentas que uso no dia a dia e os tipos de teste em que tenho mais prática.",
+        sAuto: "Automação", sTypes: "Tipos de teste", sTools: "Ferramentas e processo",
+        ty1: "Web", ty2: "Regressão", ty3: "Exploratório", ty4: "Aceitação",
+        edu: "<strong>Pós-graduação em Engenharia de Software</strong> com ênfase em Qualidade e <strong>bacharelado em Sistemas de Informação</strong>.",
+        contactTitle: "Vamos conversar sobre qualidade no seu time?",
+        contactIntro: "Aberto a vagas de QA, SDET e automação de testes, remotas ou híbridas.",
+        top: "Voltar ao topo",
+        docTitle: "Felipe Haro | QA Automation Engineer",
+        months: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"]
+      },
+      en: {
+        skip: "Skip to content",
+        navProjects: "Projects", navExperience: "Experience", navSkills: "Skills", navContact: "Contact",
+        navAbout: "About", aboutTitle: "About me", photoAlt: "Photo of Felipe Haro",
+        ab1: "I'm a QA Engineer with over 5 years in software quality. Today I own end-to-end quality for the Box Champs app at Atena IO, across Android, iOS and web, with automation in Appium, WebdriverIO and Maestro.",
+        ab2: "I started in tier-2 support, solving tickets with SQL and validating fixes, and was promoted up to test analyst. Since then my focus has been getting regression out of the way: I cut execution from 5 hours to 45 minutes at Conexa, from 4 hours to under 50 minutes at Atena IO, and grew the suite to more than 245 automated cases at Zenvia.",
+        ab3: "I plug test suites into CI/CD pipelines and use AI in my daily QA work, with Claude Code, GitHub Copilot and the Playwright MCP, to write and review scenarios faster.",
+        amEdu: "education", amEduV: "Postgraduate in Software Engineering, emphasis on Quality",
+        amLang: "languages", amLangV: "Portuguese, English (B2) and Spanish",
+        amFocus: "focus", amFocusV: "Web, mobile and API automation",
+        status: "Open to opportunities",
+        role: "QA Automation Engineer",
+        mLocal: "location", mExp: "experience", mExpV: "5+ years in QA", mStack: "stack",
+        lede: "Over five years ensuring quality for web, mobile and API products. I write automation with Cypress, Playwright, Selenium and Appium, and work closely with engineering and product to define quality criteria from the start.",
+        ctaProjects: "See projects", ctaContact: "Get in touch",
+        runAria: "Terminal showing a test suite run about Felipe's profile, with every test passing.",
+        runSuite: "Running 5 tests",
+        t1: "5+ years in software quality", t2: "web, mobile and API automation",
+        t3: "Cypress, Playwright, Selenium, Appium", t4: "tests running in CI/CD",
+        t5: "open to new opportunities", runSummary: "5 passed",
+        projTitle: "Featured projects",
+        projIntro: "Public automation repositories. Filter by tool to see where each one was used.",
+        filterAria: "Filter projects", fAll: "All", openRepo: "View on GitHub", tagA11y: "Accessibility",
+        p1desc: "End-to-end suite for demoqa.com, structured like a real-world automation project.",
+        p1a: "Page Objects to keep selectors apart from test logic",
+        p1b: "Data-driven tests and accessibility checks",
+        p1c: "Defect report and a GitHub Actions pipeline",
+        p2title: "Psychologist search",
+        p2desc: "Automation of the psychologist search page on the Psicologia Viva platform, covering different search contexts.",
+        p2a: "Cypress custom commands to build the scenarios",
+        p2b: "Randomized search data to widen coverage",
+        p2c: "Continuous integration runs with GitHub Actions",
+        p3title: "Web automation in Java",
+        p3desc: "Web UI tests written in Java with Selenium WebDriver, the stack I used for automation at Psicologia Viva.",
+        expTitle: "Experience",
+        expIntro: "From tier-2 support to quality engineering, always close to the product and the people who use it.",
+        e1when: "Nov 2025 to present, part-time",
+        e1role: 'Quality Engineer <span class="at">at Atena IO</span>',
+        e1what: "Owns quality for the Box Champs app on Android, iOS and web. Mobile automation with Appium and JavaScript, API testing with contract validation and failure scenarios.",
+        e2role: 'Quality Engineer <span class="at">at Zenvia</span>',
+        e2what: "Web and API test automation with Cypress and Playwright, Gherkin scenarios, vulnerability tracking in VeraCode and code quality in SonarQube, quality dashboards with JIRA and BrowserStack.",
+        e3role: 'Test Analyst <span class="at">at Icaro Tech</span>',
+        e3what: "Telecom projects around network infrastructure alarm systems: test plans, acceptance criteria, API testing and data work in MySQL.",
+        e4role: 'Tier-2 Support to Test Analyst <span class="at">at Psicologia Viva / Conexa</span>',
+        e4what: "Started out validating fixes in support and grew into automating web tests with Selenium WebDriver, Java and TestNG, using Docker and GitLab CI/CD pipelines.",
+        e5role: 'Tier-2 Support Analyst <span class="at">at Squadra Digital</span>',
+        e5what: "Supported sales and logistics systems with a focus on databases, PL/SQL and tax integrations.",
+        skillsTitle: "Skills",
+        skillsIntro: "Tools I use day to day and the kinds of testing I have the most practice with.",
+        sAuto: "Automation", sTypes: "Testing", sTools: "Tools and process",
+        ty1: "Web", ty2: "Regression", ty3: "Exploratory", ty4: "Acceptance",
+        edu: "<strong>Postgraduate degree in Software Engineering</strong> with an emphasis on Quality, and a <strong>bachelor's in Information Systems</strong>.",
+        contactTitle: "Let's talk about quality on your team.",
+        contactIntro: "Open to QA, SDET and test automation roles, remote or hybrid.",
+        top: "Back to top",
+        docTitle: "Felipe Haro | QA Automation Engineer",
+        months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+      }
+    };
+
+    // Month labels in the timeline dates (PT source strings)
+    const ptMonths = i18n.pt.months;
+    const whenEls = [...document.querySelectorAll(".timeline .when:not([data-i18n])")];
+    whenEls.forEach(el => { el.dataset.src = el.textContent; });
+
+    function translateDates(lang) {
+      const target = i18n[lang].months;
+      whenEls.forEach(el => {
+        el.textContent = el.dataset.src.replace(/[A-Z][a-z]{2}/g, m => {
+          const i = ptMonths.indexOf(m);
+          return i >= 0 ? target[i] : m;
+        });
+      });
+    }
+
+    function setLang(lang) {
+      const dict = i18n[lang] || i18n.pt;
+      document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.dataset.i18n; if (dict[k] !== undefined) el.textContent = dict[k];
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const k = el.dataset.i18nHtml; if (dict[k] !== undefined) el.innerHTML = dict[k];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+        const k = el.dataset.i18nAria; if (dict[k] !== undefined) el.setAttribute("aria-label", dict[k]);
+      });
+      document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+        const k = el.dataset.i18nAlt; if (dict[k] !== undefined) el.setAttribute("alt", dict[k]);
+      });
+      translateDates(lang);
+      document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+      try { localStorage.setItem("fh-lang", lang); } catch (e) {}
+    }
+
+    document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+    let initial = "pt";
+    try {
+      const saved = localStorage.getItem("fh-lang");
+      if (saved === "pt" || saved === "en") initial = saved;
+      else if (!(navigator.language || "").toLowerCase().startsWith("pt")) initial = "en";
+    } catch (e) {
+      if (!(navigator.language || "").toLowerCase().startsWith("pt")) initial = "en";
+    }
+    const urlLang = new URLSearchParams(location.search).get("lang");
+    if (urlLang === "pt" || urlLang === "en") initial = urlLang;
+    setLang(initial);
+
+    // Project filter
+    const filterButtons = document.querySelectorAll(".filters button");
+    filterButtons.forEach(btn => btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+      filterButtons.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+      document.querySelectorAll(".project").forEach(p => {
+        p.hidden = !(f === "all" || p.dataset.tags.split(" ").includes(f));
+      });
+    }));
+
+    // Terminal: stagger the lines once on load
+    document.querySelectorAll(".run.animate .line").forEach((el, i) => {
+      el.style.animationDelay = (0.25 + i * 0.28) + "s";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
