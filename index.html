@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Felipe Haro | QA Automation Engineer</title>
-  <meta name="description" content="Portfólio de Felipe Haro, engenheiro de qualidade com foco em automação de testes web, mobile e API.">
+  <title>Felipe Haro | Engenheiro de QA</title>
+  <meta name="description" content="Portfólio de Felipe Haro, Engenheiro de QA com mais de 5 anos em automação de testes Web, Mobile e API com Playwright, Cypress e Appium.">
   <meta name="theme-color" content="#0e1624">
-  <meta property="og:title" content="Felipe Haro | QA Automation Engineer">
-  <meta property="og:description" content="Automação de testes web, mobile e API com Cypress, Playwright, Selenium e Appium.">
+  <meta property="og:title" content="Felipe Haro | Engenheiro de QA">
+  <meta property="og:description" content="Automação de testes Web, Mobile e API com Playwright, Cypress, Appium, Selenium e Robot Framework.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://felipe-haro.github.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -216,6 +217,8 @@
     }
     .project .open:hover { border-color: var(--amber); }
     .project .body { grid-column: 1; }
+    .project .opens { grid-column: 2; grid-row: 1 / span 2; align-self: start; display: grid; gap: 8px; }
+    .project .opens .open { grid-column: auto; grid-row: auto; text-align: center; }
 
     /* Experience */
     .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
@@ -232,10 +235,13 @@
     .timeline p.what { margin: 0; max-width: 46em; }
 
     /* Skills */
-    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 36px; }
     .skills h3 { font-family: var(--display); font-size: 19px; font-weight: 700; margin: 0 0 14px; color: var(--amber); }
     .skills .tags li { background: var(--ink-2); border: 1px solid var(--line); }
-    .edu { margin-top: 48px; color: var(--muted); max-width: 46em; }
+    .edu { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--line); }
+    .edu h3 { font-family: var(--display); font-size: 19px; font-weight: 700; margin: 0 0 14px; color: var(--amber); }
+    .edu ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 52em; }
+    .edu li { margin-bottom: 8px; }
     .edu strong { color: var(--text); font-weight: 600; }
 
     /* Contact */
@@ -270,6 +276,8 @@
       section.block { padding: 68px 0; }
       .project { grid-template-columns: 1fr; padding: 24px 20px; }
       .project .open { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 4px; }
+      .project .opens { grid-column: 1; grid-row: auto; justify-self: start; display: flex; flex-wrap: wrap; margin-top: 4px; }
+      .project .opens .open { margin-top: 0; }
       .skills { grid-template-columns: 1fr; }
       .run { font-size: 12.5px; }
       .links a { flex-direction: column; align-items: flex-start; }
@@ -307,12 +315,12 @@
         <div>
           <p class="status"><span class="pulse" aria-hidden="true"></span><span data-i18n="status">Disponível para oportunidades</span></p>
           <h1 class="name"><span class="first">Felipe</span> <span class="last">Haro</span></h1>
-          <p class="role" data-i18n="role">QA Automation Engineer</p>
-          <p class="lede" data-i18n="lede">Mais de cinco anos garantindo qualidade em produtos web, mobile e API. Escrevo automação com Cypress, Playwright, Selenium e Appium, e trabalho perto de desenvolvimento e produto para definir critérios de qualidade desde o início.</p>
+          <p class="role" data-i18n="role">Engenheiro de QA · Automação de testes Web, Mobile e API</p>
+          <p class="lede" data-i18n="lede">Mais de cinco anos em qualidade de software, automatizando testes com Playwright, Cypress, Appium, Selenium e Robot Framework. Reduzi a regressão de 5 horas para 45 minutos na Conexa e cheguei a mais de 245 casos automatizados na Zenvia, com 60% menos esforço de regressão manual.</p>
           <dl class="meta">
-            <div><dt data-i18n="mLocal">local</dt><dd>Minas Gerais, BR</dd></div>
+            <div><dt data-i18n="mLocal">local</dt><dd data-i18n="mLocalV">Contagem, MG · Brasil</dd></div>
             <div><dt data-i18n="mExp">experiência</dt><dd data-i18n="mExpV">5+ anos em QA</dd></div>
-            <div><dt data-i18n="mStack">stack</dt><dd>Playwright, Cypress</dd></div>
+            <div><dt data-i18n="mStack">stack</dt><dd>Playwright, Cypress, Appium</dd></div>
           </dl>
           <div class="actions">
             <a class="btn primary" href="#projetos" data-i18n="ctaProjects">Ver projetos</a>
@@ -327,13 +335,14 @@
           </div>
           <div class="run-body" aria-hidden="true">
             <p class="line cmd"><span class="prompt">$</span> npx playwright test felipe-haro</p>
-            <p class="line suite" data-i18n="runSuite">Executando 5 testes</p>
+            <p class="line suite" data-i18n="runSuite">Executando 6 testes</p>
             <p class="line ok"><span class="tick">✓</span> <span data-i18n="t1">5+ anos em qualidade de software</span> <span class="ms">(5y)</span></p>
             <p class="line ok"><span class="tick">✓</span> <span data-i18n="t2">automação web, mobile e API</span></p>
-            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t3">Cypress, Playwright, Selenium, Appium</span></p>
-            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t4">testes rodando em CI/CD</span></p>
-            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t5">disponível para novas oportunidades</span></p>
-            <p class="line summary" data-i18n="runSummary">5 passed</p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t3">Playwright, Cypress, Appium, Selenium</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t4">regressão de 5 h para 45 min</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t5">suítes em CI/CD com Docker</span></p>
+            <p class="line ok"><span class="tick">✓</span> <span data-i18n="t6">disponível para novas oportunidades</span></p>
+            <p class="line summary" data-i18n="runSummary">6 passed</p>
           </div>
         </div>
       </div>
@@ -349,12 +358,12 @@
           </div>
           <div class="about-text">
             <p class="lead" data-i18n="ab1">Sou Engenheiro de QA há mais de 5 anos. Hoje cuido da qualidade de ponta a ponta do app Box Champs na Atena IO, em Android, iOS e web, com automação em Appium, WebdriverIO e Maestro.</p>
-            <p data-i18n="ab2">Comecei no suporte N2, resolvendo chamados com SQL e validando correções, e fui promovido até analista de testes. Desde então meu foco é tirar a regressão do caminho: reduzi a execução de 5 horas para 45 minutos na Conexa, de 4 horas para menos de 50 minutos na Atena IO, e cheguei a mais de 245 casos automatizados na Zenvia.</p>
-            <p data-i18n="ab3">Integro as suítes aos pipelines de CI/CD e uso IA no dia a dia de QA, com Claude Code, GitHub Copilot e o MCP do Playwright, para criar e revisar cenários mais rápido.</p>
+            <p data-i18n="ab2">Comecei no suporte N2, resolvendo chamados com SQL e validando correções, e fui promovido até analista de testes. Desde então meu foco é tirar a regressão do caminho: reduzi a execução de 5 horas para 45 minutos na Conexa, de 4 horas para menos de 50 minutos na Atena IO, e cheguei a mais de 245 casos automatizados na Zenvia, com 60% menos esforço de regressão manual.</p>
+            <p data-i18n="ab3">Além de Web, Mobile e API, testo mensageria (Kafka e RabbitMQ), performance e carga com JMeter e segurança. Integro as suítes aos pipelines de CI/CD com Docker, oriento QAs mais novos e uso IA no dia a dia de QA, com Claude Code, GitHub Copilot e o MCP do Playwright.</p>
             <dl class="meta about-meta">
               <div><dt data-i18n="amEdu">formação</dt><dd data-i18n="amEduV">Pós em Engenharia de Software com ênfase em Qualidade</dd></div>
-              <div><dt data-i18n="amLang">idiomas</dt><dd data-i18n="amLangV">Português, inglês (B2) e espanhol</dd></div>
-              <div><dt data-i18n="amFocus">foco</dt><dd data-i18n="amFocusV">Automação web, mobile e API</dd></div>
+              <div><dt data-i18n="amLang">idiomas</dt><dd data-i18n="amLangV">Português (nativo), inglês (B2) e espanhol (avançado)</dd></div>
+              <div><dt data-i18n="amFocus">foco</dt><dd data-i18n="amFocusV">Automação Web, Mobile e API</dd></div>
             </dl>
           </div>
         </div>
@@ -364,16 +373,40 @@
     <section class="block" id="projetos" aria-labelledby="projetos-title">
       <div class="wrap">
         <h2 id="projetos-title" data-i18n="projTitle">Projetos em destaque</h2>
-        <p class="intro" data-i18n="projIntro">Repositórios públicos de automação. Filtre pela ferramenta para ver onde cada uma foi usada.</p>
+        <p class="intro" data-i18n="projIntro">Repositórios públicos de automação e de estratégia de testes. Filtre pela ferramenta para ver onde cada uma foi usada.</p>
 
         <div class="filters" role="group" aria-label="Filtrar projetos" data-i18n-aria="filterAria">
           <button type="button" data-filter="all" aria-pressed="true" data-i18n="fAll">Todos</button>
+          <button type="button" data-filter="playwright" aria-pressed="false">Playwright</button>
+          <button type="button" data-filter="api" aria-pressed="false">API</button>
           <button type="button" data-filter="cypress" aria-pressed="false">Cypress</button>
           <button type="button" data-filter="selenium" aria-pressed="false">Selenium</button>
         </div>
 
         <div class="projects" aria-live="polite">
-          <article class="project featured" data-tags="cypress">
+          <article class="project featured" data-tags="playwright api">
+            <div class="body">
+              <h3 data-i18n="p0title">Quote API: estudo de caso de QA</h3>
+              <p class="repo">felipe-haro/quote-api-qa-case</p>
+              <p class="desc" data-i18n="p0desc">Uma API REST de cotações construída com defeitos propositais e a suíte de aceitação em BDD que a especifica e encontra esses defeitos, da user story ao relatório.</p>
+              <ul class="points">
+                <li data-i18n="p0a">30 critérios de aceite e 121 cenários em Gherkin: 100 passam e 21 falham de propósito, apontando os 6 critérios que a API não atende</li>
+                <li data-i18n="p0b">Testes de contrato com Zod e OpenAPI, além de cenários de validação, performance e segurança</li>
+                <li data-i18n="p0c">Self-check que prova que os cenários sabem falhar, rodando a suíte contra stubs quebrados</li>
+                <li data-i18n="p0d">Pipeline no GitHub Actions, relatórios publicados no GitHub Pages e API no ar</li>
+              </ul>
+              <ul class="tags">
+                <li>Playwright</li><li>TypeScript</li><li>Gherkin / BDD</li><li>API REST</li><li data-i18n="tagContract">Testes de contrato</li><li>Zod</li><li>OpenAPI</li><li>GitHub Actions</li>
+              </ul>
+            </div>
+            <div class="opens">
+              <a class="open" href="https://github.com/felipe-haro/quote-api-qa-case" target="_blank" rel="noopener" data-i18n="openRepo">Ver no GitHub</a>
+              <a class="open" href="https://felipe-haro.github.io/quote-api-qa-case/" target="_blank" rel="noopener" data-i18n="openReports">Ver relatórios</a>
+              <a class="open" href="https://quote-api-qa-case.onrender.com/api/health" target="_blank" rel="noopener" data-i18n="openApi">API no ar</a>
+            </div>
+          </article>
+
+          <article class="project" data-tags="cypress">
             <div class="body">
               <h3>DemoQA E2E</h3>
               <p class="repo">felipe-haro/demoqa-cypress-automation</p>
@@ -430,27 +463,27 @@
           <li class="now">
             <p class="when" data-i18n="e1when">Nov 2025 até hoje, meio período</p>
             <h3 data-i18n-html="e1role">Engenheiro de Qualidade <span class="at">na Atena IO</span></h3>
-            <p class="what" data-i18n="e1what">Responsável pela qualidade do app Box Champs em Android, iOS e web. Automação mobile com Appium e JavaScript, testes de API com validação de contratos e cenários de falha.</p>
+            <p class="what" data-i18n="e1what">Qualidade de ponta a ponta do app Box Champs em Android, iOS e Web: estratégia de testes, plano de testes e quality gates. Automação mobile com Appium + WebdriverIO e Maestro cobrindo mais de 35 fluxos críticos, que reduziu a regressão de 4 horas para menos de 50 minutos. Testes de APIs REST, incluindo a integração com a API de dados esportivos da Rundown.</p>
           </li>
           <li>
             <p class="when">Mar 2024 – Set 2026</p>
             <h3 data-i18n-html="e2role">Engenheiro de Qualidade <span class="at">na Zenvia</span></h3>
-            <p class="what" data-i18n="e2what">Automação de testes web e API com Cypress e Playwright, cenários em Gherkin, acompanhamento de vulnerabilidades no VeraCode e de qualidade de código no SonarQube, dashboards de qualidade com JIRA e BrowserStack.</p>
+            <p class="what" data-i18n="e2what">Automação Web e de API com Cypress e Playwright, chegando a mais de 245 casos automatizados e 60% menos esforço de regressão manual. Testes de mensageria com Kafka e RabbitMQ, performance e carga com JMeter, autenticação com Auth0 e vulnerabilidades no Veracode, com 100% dos apontamentos corrigidos dentro do SLA. Suítes rodando a cada merge request, dashboards de qualidade e mentoria de QAs mais novos.</p>
           </li>
           <li>
             <p class="when">Jul 2023 – Fev 2024</p>
             <h3 data-i18n-html="e3role">Analista de Testes <span class="at">na Icaro Tech</span></h3>
-            <p class="what" data-i18n="e3what">Projetos de telecom com sistemas de alarme de infraestrutura de rede: planos de teste, critérios de aceite, testes de API e manipulação de dados em MySQL.</p>
+            <p class="what" data-i18n="e3what">Testes de sistemas de alarmística de infraestrutura de rede para operadoras de telecom. Planos de teste, critérios de aceite e cenários em Gherkin para mais de 20 funcionalidades, testes de APIs REST e de mensageria, com validação de dados em MySQL e Object Servers (IBM).</p>
           </li>
           <li>
             <p class="when">Set 2020 – Jul 2023</p>
             <h3 data-i18n-html="e4role">Suporte N2 a Analista de Testes <span class="at">na Psicologia Viva / Conexa</span></h3>
-            <p class="what" data-i18n="e4what">Comecei validando correções no suporte e cresci até automatizar testes web com Selenium WebDriver, Java e TestNG, com Docker e pipelines no GitLab CI/CD.</p>
+            <p class="what" data-i18n="e4what">Entrei no suporte N2 e fui promovido duas vezes, até Analista de Testes Pleno. Automação Web com Selenium WebDriver + Java (TestNG) e de API com RestAssured: uma suíte de mais de 180 cenários que reduziu a regressão de 5 horas para 45 minutos, rodando em Docker no GitLab CI/CD antes de cada deploy. Testes de serviços SOAP com operadoras de saúde, mensageria e performance com JMeter.</p>
           </li>
           <li>
             <p class="when">Dez 2019 – Ago 2020</p>
             <h3 data-i18n-html="e5role">Analista de Suporte N2 <span class="at">na Squadra Digital</span></h3>
-            <p class="what" data-i18n="e5what">Suporte a sistemas de vendas e logística com foco em banco de dados, PL/SQL e integrações fiscais.</p>
+            <p class="what" data-i18n="e5what">Suporte ao sistema de vendas, logística e faturamento do varejo (Oracle PL/SQL) e testes em integrações de vendas e com órgãos fiscais (SEFAZ, MASTERSAF), incluindo NFe, NFCe e CFe.</p>
           </li>
         </ol>
       </div>
@@ -462,25 +495,46 @@
         <p class="intro" data-i18n="skillsIntro">Ferramentas que uso no dia a dia e os tipos de teste em que tenho mais prática.</p>
         <div class="skills">
           <div>
-            <h3 data-i18n="sAuto">Automação</h3>
-            <ul class="tags">
-              <li>Playwright</li><li>Cypress</li><li>Selenium WebDriver</li><li>Appium</li><li>RestAssured</li><li>Robot Framework</li><li>TypeScript</li><li>JavaScript</li><li>Java</li>
-            </ul>
+            <h3 data-i18n="sAuto">Automação de testes</h3>
+            <ul class="tags"><li>Playwright</li><li>Cypress</li><li>Selenium WebDriver</li><li>Appium</li><li>WebdriverIO</li><li>Maestro</li><li>Robot Framework</li><li>RestAssured</li><li>TestNG</li></ul>
+          </div>
+          <div>
+            <h3 data-i18n="sLang">Linguagens</h3>
+            <ul class="tags"><li>JavaScript</li><li>TypeScript</li><li>Java</li><li>Python</li><li>SQL / PL/SQL</li><li>Shell Script</li><li>Gherkin (BDD)</li></ul>
           </div>
           <div>
             <h3 data-i18n="sTypes">Tipos de teste</h3>
-            <ul class="tags">
-              <li data-i18n="ty1">Web</li><li>Mobile</li><li>API</li><li data-i18n="ty2">Regressão</li><li data-i18n="ty3">Exploratório</li><li data-i18n="ty4">Aceitação</li><li>BDD / Gherkin</li>
-            </ul>
+            <ul class="tags" data-i18n-html="sTypesL"><li>Regressão</li><li>Integração</li><li>Exploratório</li><li>Funcional</li><li>API (REST e SOAP)</li><li>Mensageria</li><li>Performance e carga</li><li>Segurança</li><li>Mobile (Android e iOS)</li><li>Cross-browser</li><li>Aceitação</li></ul>
           </div>
           <div>
-            <h3 data-i18n="sTools">Ferramentas e processo</h3>
-            <ul class="tags">
-              <li>JIRA</li><li>Azure DevOps</li><li>BrowserStack</li><li>Postman</li><li>GitHub Actions</li><li>GitLab CI/CD</li><li>Docker</li><li>SonarQube</li><li>VeraCode</li><li>SQL</li>
-            </ul>
+            <h3 data-i18n="sApi">APIs, mensageria e dados</h3>
+            <ul class="tags"><li>REST</li><li>SOAP</li><li>Kafka</li><li>RabbitMQ</li><li>Postman</li><li>Insomnia</li><li>MySQL</li><li>Oracle PL/SQL</li><li>MongoDB</li></ul>
+          </div>
+          <div>
+            <h3 data-i18n="sDevops">Linux, CI/CD e DevOps</h3>
+            <ul class="tags"><li>Linux</li><li>GitHub Actions</li><li>GitLab CI/CD</li><li>Jenkins</li><li>Docker</li><li>Git</li><li>Argo CD</li><li>Airflow</li></ul>
+          </div>
+          <div>
+            <h3 data-i18n="sPerf">Performance e segurança</h3>
+            <ul class="tags"><li>JMeter</li><li>OWASP</li><li>Auth0</li><li>Veracode</li><li>SonarQube</li></ul>
+          </div>
+          <div>
+            <h3 data-i18n="sObs">Observabilidade e qualidade</h3>
+            <ul class="tags" data-i18n-html="sObsL"><li>Grafana</li><li>Graylog</li><li>New Relic</li><li>BrowserStack</li><li>Dashboards de qualidade</li></ul>
+          </div>
+          <div>
+            <h3 data-i18n="sMgmt">Gestão de testes</h3>
+            <ul class="tags" data-i18n-html="sMgmtL"><li>Jira</li><li>Xray</li><li>Azure DevOps</li><li>Estratégia e planos de teste</li><li>Design de casos de teste</li><li>Triagem de defeitos</li><li>Scrum</li><li>Kanban</li></ul>
+          </div>
+          <div>
+            <h3 data-i18n="sAi">IA para QA</h3>
+            <ul class="tags" data-i18n-html="sAiL"><li>Claude Code</li><li>GitHub Copilot</li><li>MCP do Playwright</li><li>Agentes de QA</li><li>OpenAI GPT</li><li>Google Gemini</li><li>GitLab Duo</li></ul>
           </div>
         </div>
-        <p class="edu" data-i18n-html="edu"><strong>Pós-graduação em Engenharia de Software</strong> com ênfase em Qualidade e <strong>bacharelado em Sistemas de Informação</strong>.</p>
+        <div class="edu">
+          <h3 data-i18n="eduTitle">Formação e cursos</h3>
+          <ul data-i18n-html="eduL"><li><strong>Pós-graduação em Engenharia de Software</strong> com ênfase em Qualidade, Faculdade VINCIT (2023)</li><li><strong>Bacharelado em Sistemas de Informação</strong>, Universidade Pitágoras (2017)</li><li><strong>Cursos:</strong> Universo Playwright Zombie, Fernando Papito (2024) · Universo Robot Framework (2023) · Cypress iniciante, intermediário e avançado (2022–2023) · Teste de Software (TSPI), Julio de Lima (2021) · API REST (2021)</li></ul>
+        </div>
       </div>
     </section>
 
@@ -513,23 +567,23 @@
         navProjects: "Projetos", navExperience: "Experiência", navSkills: "Competências", navContact: "Contato",
         navAbout: "Sobre", aboutTitle: "Sobre mim", photoAlt: "Foto de Felipe Haro",
         ab1: "Sou Engenheiro de QA há mais de 5 anos. Hoje cuido da qualidade de ponta a ponta do app Box Champs na Atena IO, em Android, iOS e web, com automação em Appium, WebdriverIO e Maestro.",
-        ab2: "Comecei no suporte N2, resolvendo chamados com SQL e validando correções, e fui promovido até analista de testes. Desde então meu foco é tirar a regressão do caminho: reduzi a execução de 5 horas para 45 minutos na Conexa, de 4 horas para menos de 50 minutos na Atena IO, e cheguei a mais de 245 casos automatizados na Zenvia.",
-        ab3: "Integro as suítes aos pipelines de CI/CD e uso IA no dia a dia de QA, com Claude Code, GitHub Copilot e o MCP do Playwright, para criar e revisar cenários mais rápido.",
+        ab2: "Comecei no suporte N2, resolvendo chamados com SQL e validando correções, e fui promovido até analista de testes. Desde então meu foco é tirar a regressão do caminho: reduzi a execução de 5 horas para 45 minutos na Conexa, de 4 horas para menos de 50 minutos na Atena IO, e cheguei a mais de 245 casos automatizados na Zenvia, com 60% menos esforço de regressão manual.",
+        ab3: "Além de Web, Mobile e API, testo mensageria (Kafka e RabbitMQ), performance e carga com JMeter e segurança. Integro as suítes aos pipelines de CI/CD com Docker, oriento QAs mais novos e uso IA no dia a dia de QA, com Claude Code, GitHub Copilot e o MCP do Playwright.",
         amEdu: "formação", amEduV: "Pós em Engenharia de Software com ênfase em Qualidade",
-        amLang: "idiomas", amLangV: "Português, inglês (B2) e espanhol",
-        amFocus: "foco", amFocusV: "Automação web, mobile e API",
+        amLang: "idiomas", amLangV: "Português (nativo), inglês (B2) e espanhol (avançado)",
+        amFocus: "foco", amFocusV: "Automação Web, Mobile e API",
         status: "Disponível para oportunidades",
-        role: "QA Automation Engineer",
+        role: "Engenheiro de QA · Automação de testes Web, Mobile e API",
         mLocal: "local", mExp: "experiência", mExpV: "5+ anos em QA", mStack: "stack",
-        lede: "Mais de cinco anos garantindo qualidade em produtos web, mobile e API. Escrevo automação com Cypress, Playwright, Selenium e Appium, e trabalho perto de desenvolvimento e produto para definir critérios de qualidade desde o início.",
+        lede: "Mais de cinco anos em qualidade de software, automatizando testes com Playwright, Cypress, Appium, Selenium e Robot Framework. Reduzi a regressão de 5 horas para 45 minutos na Conexa e cheguei a mais de 245 casos automatizados na Zenvia, com 60% menos esforço de regressão manual.",
         ctaProjects: "Ver projetos", ctaContact: "Falar comigo",
         runAria: "Terminal mostrando a execução de uma suíte de testes sobre o perfil do Felipe, com todos os testes passando.",
-        runSuite: "Executando 5 testes",
+        runSuite: "Executando 6 testes",
         t1: "5+ anos em qualidade de software", t2: "automação web, mobile e API",
-        t3: "Cypress, Playwright, Selenium, Appium", t4: "testes rodando em CI/CD",
-        t5: "disponível para novas oportunidades", runSummary: "5 passed",
+        t3: "Playwright, Cypress, Appium, Selenium", t4: "regressão de 5 h para 45 min",
+        t5: "suítes em CI/CD com Docker", runSummary: "6 passed",
         projTitle: "Projetos em destaque",
-        projIntro: "Repositórios públicos de automação. Filtre pela ferramenta para ver onde cada uma foi usada.",
+        projIntro: "Repositórios públicos de automação e de estratégia de testes. Filtre pela ferramenta para ver onde cada uma foi usada.",
         filterAria: "Filtrar projetos", fAll: "Todos", openRepo: "Ver no GitHub", tagA11y: "Acessibilidade",
         p1desc: "Suíte end-to-end para o demoqa.com, estruturada como um projeto de automação real.",
         p1a: "Page Objects para separar seletores da lógica dos testes",
@@ -546,24 +600,45 @@
         expIntro: "Do suporte N2 à engenharia de qualidade, sempre perto do produto e de quem o usa.",
         e1when: "Nov 2025 até hoje, meio período",
         e1role: 'Engenheiro de Qualidade <span class="at">na Atena IO</span>',
-        e1what: "Responsável pela qualidade do app Box Champs em Android, iOS e web. Automação mobile com Appium e JavaScript, testes de API com validação de contratos e cenários de falha.",
+        e1what: "Qualidade de ponta a ponta do app Box Champs em Android, iOS e Web: estratégia de testes, plano de testes e quality gates. Automação mobile com Appium + WebdriverIO e Maestro cobrindo mais de 35 fluxos críticos, que reduziu a regressão de 4 horas para menos de 50 minutos. Testes de APIs REST, incluindo a integração com a API de dados esportivos da Rundown.",
         e2role: 'Engenheiro de Qualidade <span class="at">na Zenvia</span>',
-        e2what: "Automação de testes web e API com Cypress e Playwright, cenários em Gherkin, acompanhamento de vulnerabilidades no VeraCode e de qualidade de código no SonarQube, dashboards de qualidade com JIRA e BrowserStack.",
+        e2what: "Automação Web e de API com Cypress e Playwright, chegando a mais de 245 casos automatizados e 60% menos esforço de regressão manual. Testes de mensageria com Kafka e RabbitMQ, performance e carga com JMeter, autenticação com Auth0 e vulnerabilidades no Veracode, com 100% dos apontamentos corrigidos dentro do SLA. Suítes rodando a cada merge request, dashboards de qualidade e mentoria de QAs mais novos.",
         e3role: 'Analista de Testes <span class="at">na Icaro Tech</span>',
-        e3what: "Projetos de telecom com sistemas de alarme de infraestrutura de rede: planos de teste, critérios de aceite, testes de API e manipulação de dados em MySQL.",
+        e3what: "Testes de sistemas de alarmística de infraestrutura de rede para operadoras de telecom. Planos de teste, critérios de aceite e cenários em Gherkin para mais de 20 funcionalidades, testes de APIs REST e de mensageria, com validação de dados em MySQL e Object Servers (IBM).",
         e4role: 'Suporte N2 a Analista de Testes <span class="at">na Psicologia Viva / Conexa</span>',
-        e4what: "Comecei validando correções no suporte e cresci até automatizar testes web com Selenium WebDriver, Java e TestNG, com Docker e pipelines no GitLab CI/CD.",
+        e4what: "Entrei no suporte N2 e fui promovido duas vezes, até Analista de Testes Pleno. Automação Web com Selenium WebDriver + Java (TestNG) e de API com RestAssured: uma suíte de mais de 180 cenários que reduziu a regressão de 5 horas para 45 minutos, rodando em Docker no GitLab CI/CD antes de cada deploy. Testes de serviços SOAP com operadoras de saúde, mensageria e performance com JMeter.",
         e5role: 'Analista de Suporte N2 <span class="at">na Squadra Digital</span>',
-        e5what: "Suporte a sistemas de vendas e logística com foco em banco de dados, PL/SQL e integrações fiscais.",
+        e5what: "Suporte ao sistema de vendas, logística e faturamento do varejo (Oracle PL/SQL) e testes em integrações de vendas e com órgãos fiscais (SEFAZ, MASTERSAF), incluindo NFe, NFCe e CFe.",
         skillsTitle: "Competências",
         skillsIntro: "Ferramentas que uso no dia a dia e os tipos de teste em que tenho mais prática.",
-        sAuto: "Automação", sTypes: "Tipos de teste", sTools: "Ferramentas e processo",
-        ty1: "Web", ty2: "Regressão", ty3: "Exploratório", ty4: "Aceitação",
-        edu: "<strong>Pós-graduação em Engenharia de Software</strong> com ênfase em Qualidade e <strong>bacharelado em Sistemas de Informação</strong>.",
-        contactTitle: "Vamos conversar sobre qualidade no seu time?",
+        sAuto: "Automação de testes", sTypes: "Tipos de teste", contactTitle: "Vamos conversar sobre qualidade no seu time?",
         contactIntro: "Aberto a vagas de QA, SDET e automação de testes, remotas ou híbridas.",
         top: "Voltar ao topo",
-        docTitle: "Felipe Haro | QA Automation Engineer",
+        docTitle: "Felipe Haro | Engenheiro de QA",
+        mLocalV: "Contagem, MG · Brasil",
+        t6: "disponível para novas oportunidades",
+        p0title: "Quote API: estudo de caso de QA",
+        p0desc: "Uma API REST de cotações construída com defeitos propositais e a suíte de aceitação em BDD que a especifica e encontra esses defeitos, da user story ao relatório.",
+        p0a: "30 critérios de aceite e 121 cenários em Gherkin: 100 passam e 21 falham de propósito, apontando os 6 critérios que a API não atende",
+        p0b: "Testes de contrato com Zod e OpenAPI, além de cenários de validação, performance e segurança",
+        p0c: "Self-check que prova que os cenários sabem falhar, rodando a suíte contra stubs quebrados",
+        p0d: "Pipeline no GitHub Actions, relatórios publicados no GitHub Pages e API no ar",
+        openReports: "Ver relatórios",
+        openApi: "API no ar",
+        tagContract: "Testes de contrato",
+        sLang: "Linguagens",
+        sApi: "APIs, mensageria e dados",
+        sDevops: "Linux, CI/CD e DevOps",
+        sPerf: "Performance e segurança",
+        sObs: "Observabilidade e qualidade",
+        sMgmt: "Gestão de testes",
+        sAi: "IA para QA",
+        eduTitle: "Formação e cursos",
+        sTypesL: "<li>Regressão</li><li>Integração</li><li>Exploratório</li><li>Funcional</li><li>API (REST e SOAP)</li><li>Mensageria</li><li>Performance e carga</li><li>Segurança</li><li>Mobile (Android e iOS)</li><li>Cross-browser</li><li>Aceitação</li>",
+        sMgmtL: "<li>Jira</li><li>Xray</li><li>Azure DevOps</li><li>Estratégia e planos de teste</li><li>Design de casos de teste</li><li>Triagem de defeitos</li><li>Scrum</li><li>Kanban</li>",
+        sAiL: "<li>Claude Code</li><li>GitHub Copilot</li><li>MCP do Playwright</li><li>Agentes de QA</li><li>OpenAI GPT</li><li>Google Gemini</li><li>GitLab Duo</li>",
+        sObsL: "<li>Grafana</li><li>Graylog</li><li>New Relic</li><li>BrowserStack</li><li>Dashboards de qualidade</li>",
+        eduL: "<li><strong>Pós-graduação em Engenharia de Software</strong> com ênfase em Qualidade, Faculdade VINCIT (2023)</li><li><strong>Bacharelado em Sistemas de Informação</strong>, Universidade Pitágoras (2017)</li><li><strong>Cursos:</strong> Universo Playwright Zombie, Fernando Papito (2024) · Universo Robot Framework (2023) · Cypress iniciante, intermediário e avançado (2022–2023) · Teste de Software (TSPI), Julio de Lima (2021) · API REST (2021)</li>",
         months: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"]
       },
       en: {
@@ -571,23 +646,23 @@
         navProjects: "Projects", navExperience: "Experience", navSkills: "Skills", navContact: "Contact",
         navAbout: "About", aboutTitle: "About me", photoAlt: "Photo of Felipe Haro",
         ab1: "I'm a QA Engineer with over 5 years in software quality. Today I own end-to-end quality for the Box Champs app at Atena IO, across Android, iOS and web, with automation in Appium, WebdriverIO and Maestro.",
-        ab2: "I started in tier-2 support, solving tickets with SQL and validating fixes, and was promoted up to test analyst. Since then my focus has been getting regression out of the way: I cut execution from 5 hours to 45 minutes at Conexa, from 4 hours to under 50 minutes at Atena IO, and grew the suite to more than 245 automated cases at Zenvia.",
-        ab3: "I plug test suites into CI/CD pipelines and use AI in my daily QA work, with Claude Code, GitHub Copilot and the Playwright MCP, to write and review scenarios faster.",
+        ab2: "I started in tier-2 support, solving tickets with SQL and validating fixes, and was promoted up to test analyst. Since then my focus has been getting regression out of the way: I cut execution from 5 hours to 45 minutes at Conexa, from 4 hours to under 50 minutes at Atena IO, and grew the suite to 245+ automated test cases at Zenvia, with 60% less manual regression effort.",
+        ab3: "Beyond Web, Mobile and API, I test messaging (Kafka and RabbitMQ), performance and load with JMeter, and security. I integrate test suites into CI/CD pipelines with Docker, mentor junior QAs and use AI daily in QA work, with Claude Code, GitHub Copilot and the Playwright MCP.",
         amEdu: "education", amEduV: "Postgraduate in Software Engineering, emphasis on Quality",
-        amLang: "languages", amLangV: "Portuguese, English (B2) and Spanish",
-        amFocus: "focus", amFocusV: "Web, mobile and API automation",
+        amLang: "languages", amLangV: "Portuguese (native), English (B2) and Spanish (advanced)",
+        amFocus: "focus", amFocusV: "Web, Mobile and API automation",
         status: "Open to opportunities",
-        role: "QA Automation Engineer",
+        role: "QA Engineer · Web, Mobile and API Test Automation",
         mLocal: "location", mExp: "experience", mExpV: "5+ years in QA", mStack: "stack",
-        lede: "Over five years ensuring quality for web, mobile and API products. I write automation with Cypress, Playwright, Selenium and Appium, and work closely with engineering and product to define quality criteria from the start.",
+        lede: "Over five years in software quality, automating tests with Playwright, Cypress, Appium, Selenium and Robot Framework. I cut regression from 5 hours to 45 minutes at Conexa and grew the suite to 245+ automated test cases at Zenvia, with 60% less manual regression effort.",
         ctaProjects: "See projects", ctaContact: "Get in touch",
         runAria: "Terminal showing a test suite run about Felipe's profile, with every test passing.",
-        runSuite: "Running 5 tests",
+        runSuite: "Running 6 tests",
         t1: "5+ years in software quality", t2: "web, mobile and API automation",
-        t3: "Cypress, Playwright, Selenium, Appium", t4: "tests running in CI/CD",
-        t5: "open to new opportunities", runSummary: "5 passed",
+        t3: "Playwright, Cypress, Appium, Selenium", t4: "regression cut from 5 h to 45 min",
+        t5: "suites in CI/CD with Docker", runSummary: "6 passed",
         projTitle: "Featured projects",
-        projIntro: "Public automation repositories. Filter by tool to see where each one was used.",
+        projIntro: "Public automation and test strategy repositories. Filter by tool to see where each one was used.",
         filterAria: "Filter projects", fAll: "All", openRepo: "View on GitHub", tagA11y: "Accessibility",
         p1desc: "End-to-end suite for demoqa.com, structured like a real-world automation project.",
         p1a: "Page Objects to keep selectors apart from test logic",
@@ -604,24 +679,45 @@
         expIntro: "From tier-2 support to quality engineering, always close to the product and the people who use it.",
         e1when: "Nov 2025 to present, part-time",
         e1role: 'Quality Engineer <span class="at">at Atena IO</span>',
-        e1what: "Owns quality for the Box Champs app on Android, iOS and web. Mobile automation with Appium and JavaScript, API testing with contract validation and failure scenarios.",
+        e1what: "End-to-end quality of the Box Champs app on Android, iOS and Web: test strategy, test plan and quality gates. Mobile automation with Appium + WebdriverIO and Maestro covering 35+ critical flows, which cut regression from 4 hours to under 50 minutes. REST API testing, including the integration with Rundown's sports data API.",
         e2role: 'Quality Engineer <span class="at">at Zenvia</span>',
-        e2what: "Web and API test automation with Cypress and Playwright, Gherkin scenarios, vulnerability tracking in VeraCode and code quality in SonarQube, quality dashboards with JIRA and BrowserStack.",
+        e2what: "Web and API automation with Cypress and Playwright, reaching 245+ automated test cases and 60% less manual regression effort. Messaging tests with Kafka and RabbitMQ, performance and load testing with JMeter, authentication with Auth0 and vulnerabilities in Veracode, with 100% of findings fixed within SLA. Suites running on every merge request, quality dashboards and mentoring of junior QAs.",
         e3role: 'Test Analyst <span class="at">at Icaro Tech</span>',
-        e3what: "Telecom projects around network infrastructure alarm systems: test plans, acceptance criteria, API testing and data work in MySQL.",
+        e3what: "Tested network infrastructure alarm systems for telecom carriers. Test plans, acceptance criteria and Gherkin scenarios for 20+ features, REST API and messaging tests, with data validation in MySQL and IBM Object Servers.",
         e4role: 'Tier-2 Support to Test Analyst <span class="at">at Psicologia Viva / Conexa</span>',
-        e4what: "Started out validating fixes in support and grew into automating web tests with Selenium WebDriver, Java and TestNG, using Docker and GitLab CI/CD pipelines.",
+        e4what: "Joined in tier-2 support and was promoted twice, up to mid-level Test Analyst. Web automation with Selenium WebDriver + Java (TestNG) and API automation with RestAssured: a 180+ scenario suite that cut regression from 5 hours to 45 minutes, running in Docker on GitLab CI/CD before every deploy. Tested SOAP services with health insurance providers, messaging, and performance with JMeter.",
         e5role: 'Tier-2 Support Analyst <span class="at">at Squadra Digital</span>',
-        e5what: "Supported sales and logistics systems with a focus on databases, PL/SQL and tax integrations.",
+        e5what: "Supported the retail sales, logistics and billing system (Oracle PL/SQL) and tested sales integrations and integrations with Brazilian tax authorities (SEFAZ, MASTERSAF), including electronic invoices.",
         skillsTitle: "Skills",
         skillsIntro: "Tools I use day to day and the kinds of testing I have the most practice with.",
-        sAuto: "Automation", sTypes: "Testing", sTools: "Tools and process",
-        ty1: "Web", ty2: "Regression", ty3: "Exploratory", ty4: "Acceptance",
-        edu: "<strong>Postgraduate degree in Software Engineering</strong> with an emphasis on Quality, and a <strong>bachelor's in Information Systems</strong>.",
-        contactTitle: "Let's talk about quality on your team.",
+        sAuto: "Test automation", sTypes: "Testing types", contactTitle: "Let's talk about quality on your team.",
         contactIntro: "Open to QA, SDET and test automation roles, remote or hybrid.",
         top: "Back to top",
-        docTitle: "Felipe Haro | QA Automation Engineer",
+        docTitle: "Felipe Haro | QA Engineer",
+        mLocalV: "Contagem, MG · Brazil",
+        t6: "open to new opportunities",
+        p0title: "Quote API: QA study case",
+        p0desc: "A REST quote API built with known defects on purpose, and the BDD acceptance suite that specifies it and finds those defects, from the user story to the report.",
+        p0a: "30 acceptance criteria and 121 Gherkin scenarios: 100 pass and 21 fail on purpose, pointing at the 6 criteria the API does not meet",
+        p0b: "Contract tests with Zod and OpenAPI, plus validation, performance and security scenarios",
+        p0c: "A self-check that proves the scenarios can fail, by running the suite against broken stubs",
+        p0d: "GitHub Actions pipeline, reports published on GitHub Pages and the API online",
+        openReports: "See the reports",
+        openApi: "Live API",
+        tagContract: "Contract testing",
+        sLang: "Languages",
+        sApi: "APIs, messaging and data",
+        sDevops: "Linux, CI/CD and DevOps",
+        sPerf: "Performance and security",
+        sObs: "Observability and quality",
+        sMgmt: "Test management",
+        sAi: "AI for QA",
+        eduTitle: "Education and courses",
+        sTypesL: "<li>Regression</li><li>Integration</li><li>Exploratory</li><li>Functional</li><li>API (REST and SOAP)</li><li>Messaging</li><li>Performance and load</li><li>Security</li><li>Mobile (Android and iOS)</li><li>Cross-browser</li><li>Acceptance</li>",
+        sMgmtL: "<li>Jira</li><li>Xray</li><li>Azure DevOps</li><li>Test strategy and test plans</li><li>Test case design</li><li>Defect triage</li><li>Scrum</li><li>Kanban</li>",
+        sAiL: "<li>Claude Code</li><li>GitHub Copilot</li><li>Playwright MCP</li><li>QA agents</li><li>OpenAI GPT</li><li>Google Gemini</li><li>GitLab Duo</li>",
+        sObsL: "<li>Grafana</li><li>Graylog</li><li>New Relic</li><li>BrowserStack</li><li>Quality dashboards</li>",
+        eduL: "<li><strong>Postgraduate specialization in Software Engineering</strong> with a focus on Quality, Faculdade VINCIT (2023)</li><li><strong>B.S. in Information Systems</strong>, Universidade Pitágoras (2017)</li><li><strong>Courses:</strong> Universo Playwright Zombie, Fernando Papito (2024) · Universo Robot Framework (2023) · Cypress beginner, intermediate and advanced (2022–2023) · Software Testing for Beginners (TSPI), Julio de Lima (2021) · REST API (2021)</li>",
         months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
       }
     };
@@ -644,6 +740,7 @@
     function setLang(lang) {
       const dict = i18n[lang] || i18n.pt;
       document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      document.title = dict.docTitle;
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const k = el.dataset.i18n; if (dict[k] !== undefined) el.textContent = dict[k];
       });
